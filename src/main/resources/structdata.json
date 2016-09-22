@@ -1,0 +1,162 @@
+[
+  {
+    "raw": 1,
+    "columns": 9,
+    "hallID": 1
+  },
+  {
+    "raw": 2,
+    "columns": 9,
+    "hallID": 1
+  },
+  {
+    "raw": 3,
+    "columns": 9,
+    "hallID": 1
+  },
+  {
+    "raw": 4,
+    "columns": 11,
+    "hallID": 1
+  },
+  {
+    "raw": 5,
+    "columns": 11,
+    "hallID": 1
+  },
+  {
+    "raw": 6,
+    "columns": 11,
+    "hallID": 1
+  },
+  {
+    "raw": 7,
+    "columns": 11,
+    "hallID": 1
+  },
+  {
+    "raw": 8,
+    "columns": 15,
+    "hallID": 1
+  },
+  {
+    "raw": 9,
+    "columns": 15,
+    "hallID": 1
+  },
+  {
+    "raw": 10,
+    "columns": 15,
+    "hallID": 1
+  },
+  {
+    "raw": 1,
+    "columns": 5,
+    "hallID": 2
+  },
+  {
+    "raw": 2,
+    "columns": 7,
+    "hallID": 2
+  },
+  {
+    "raw": 3,
+    "columns": 7,
+    "hallID": 2
+  },
+  {
+    "raw": 4,
+    "columns": 9,
+    "hallID": 2
+  },
+  {
+    "raw": 5,
+    "columns": 9,
+    "hallID": 2
+  },
+  {
+    "raw": 6,
+    "columns": 9,
+    "hallID": 2
+  },
+  {
+    "raw": 7,
+    "columns": 11,
+    "hallID": 2
+  },
+  {
+    "raw": 8,
+    "columns": 15,
+    "hallID": 2
+  },
+  {
+    "raw": 9,
+    "columns": 15,
+    "hallID": 2
+  },
+  {
+    "raw": 10,
+    "columns": 15,
+    "hallID": 2
+  },
+  {
+    "raw": 1,
+    "columns": 5,
+    "hallID": 4
+  },
+  {
+    "raw": 2,
+    "columns": 7,
+    "hallID": 4
+  },
+  {
+    "raw": 3,
+    "columns": 7,
+    "hallID": 4
+  },
+  {
+    "raw": 4,
+    "columns": 9,
+    "hallID": 4
+  },
+  {
+    "raw": 5,
+    "columns": 9,
+    "hallID": 4
+  },
+  {
+    "raw": 6,
+    "columns": 9,
+    "hallID": 4
+  },
+  {
+    "raw": 7,
+    "columns": 11,
+    "hallID": 4
+  },
+  {
+    "raw": 8,
+    "columns": 15,
+    "hallID": 4
+  },
+  {
+    "raw": 9,
+    "columns": 15,
+    "hallID": 4
+  },
+  {
+    "raw": 10,
+    "columns": 15,
+    "hallID": 4
+  },
+  {
+    "raw": 11,
+    "columns": 19,
+    "hallID": 4
+  },
+  {
+    "raw": 12,
+    "columns": 19,
+    "hallID": 4
+  }
+]

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://dozer.sourceforge.net"
+          xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <mapping>
+        <class-a>practice7.models.UserRole</class-a>
+        <class-b>practice7.dto.UserRoleDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>practice7.models.Entity</class-a>
+        <class-b>practice7.models.Entity</class-b>
+    </mapping>
+    <mapping>
+        <class-a>practice7.helpers.ValueHolder</class-a>
+        <class-b>practice7.helpers.ValueHolder</class-b>
+    </mapping>
+    <mapping>
+        <class-a>practice7.models.Film</class-a>
+        <class-b>practice7.dto.FilmDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>practice7.models.Hall</class-a>
+        <class-b>practice7.dto.HallDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>practice7.models.Session</class-a>
+        <class-b>practice7.dto.SessionDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>practice7.models.Ticket</class-a>
+        <class-b>practice7.dto.TicketDTO</class-b>
+    </mapping>
+</mappings>
