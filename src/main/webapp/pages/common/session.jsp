@@ -12,11 +12,23 @@
     <title>Title</title>
 </head>
 <body>
-<h1><c:out value="${date}"/></h1>
+<h1><c:out value="${date1}"/></h1>
 <p>
-    <c:forEach items="${sessions}" var="session">
+    <c:forEach items="${sessions1}" var="session">
         <c:out value="${session}"/><br>
 </c:forEach>
+</p>
+<h1><c:out value="${date2}"/></h1>
+<p>
+    <c:forEach items="${sessions2}" var="session">
+        <c:out value="${session}"/><br>
+    </c:forEach>
+</p>
+<h1><c:out value="${date3}"/></h1>
+<p>
+    <c:forEach items="${sessions3}" var="session">
+        <c:out value="${session}"/><br>
+    </c:forEach>
 </p>
 </body>
 </html>
