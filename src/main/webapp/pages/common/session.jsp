@@ -12,8 +12,11 @@
     <title>Title</title>
 </head>
 <body>
-<c:forEach items="${sessionDTOs}" var="session">
-    <c:out value="${session.dateOfSeance}"/>
+<h1><c:out value="${date}"/></h1>
+<p>
+    <c:forEach items="${sessions}" var="session">
+        <c:out value="${session}"/><br>
 </c:forEach>
+</p>
 </body>
 </html>

@@ -2,31 +2,31 @@
 <mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://dozer.sourceforge.net"
           xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
     <mapping>
-        <class-a>practice7.models.UserRole</class-a>
-        <class-b>practice7.dto.UserRoleDTO</class-b>
+        <class-a>models.UserRole</class-a>
+        <class-b>dto.UserRoleDTO</class-b>
     </mapping>
     <mapping>
-        <class-a>practice7.models.Entity</class-a>
-        <class-b>practice7.models.Entity</class-b>
+        <class-a>models.Entity</class-a>
+        <class-b>models.Entity</class-b>
     </mapping>
     <mapping>
-        <class-a>practice7.helpers.ValueHolder</class-a>
-        <class-b>practice7.helpers.ValueHolder</class-b>
+        <class-a>helpers.ValueHolder</class-a>
+        <class-b>helpers.ValueHolder</class-b>
     </mapping>
     <mapping>
-        <class-a>practice7.models.Film</class-a>
-        <class-b>practice7.dto.FilmDTO</class-b>
+        <class-a>models.Film</class-a>
+        <class-b>dto.FilmDTO</class-b>
     </mapping>
     <mapping>
-        <class-a>practice7.models.Hall</class-a>
-        <class-b>practice7.dto.HallDTO</class-b>
+        <class-a>models.Hall</class-a>
+        <class-b>dto.HallDTO</class-b>
     </mapping>
     <mapping>
-        <class-a>practice7.models.Session</class-a>
-        <class-b>practice7.dto.SessionDTO</class-b>
+        <class-a>models.Session</class-a>
+        <class-b>dto.SessionDTO</class-b>
     </mapping>
     <mapping>
-        <class-a>practice7.models.Ticket</class-a>
-        <class-b>practice7.dto.TicketDTO</class-b>
+        <class-a>models.Ticket</class-a>
+        <class-b>dto.TicketDTO</class-b>
     </mapping>
 </mappings>
