@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "login": "lex",
+    "passwd": "gjt[fkb",
+    "email": "lleeexxx@gmail.com",
+    "name": "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440",
+    "surname": "\u041a\u0430\u0437\u044c\u043c\u0438\u043d",
+    "birthday": "1980-04-24",
+    "roleID": 1,
+    "sex": 0
+  },
+  {
+    "id": 2,
+    "login": "lom",
+    "passwd": "1223",
+    "email": "kolya@mail.ru",
+    "name": "\u041c\u0438\u0445\u0430\u0438\u043b",
+    "surname": "\u0411\u0430\u0440\u0430\u0431\u0435\u043a\u043e\u0432",
+    "birthday": "1967-08-14",
+    "roleID": 2,
+    "sex": 0
+  },
+  {
+    "id": 3,
+    "login": "\u043b\u0438\u043d\u0430",
+    "passwd": "88",
+    "email": "lina@ukr.net",
+    "name": "\u0410\u043b\u0435\u043d\u0430",
+    "surname": "\u041a\u043e\u0447\u0443\u0431\u0430\u0435\u0432\u0430",
+    "birthday": "1994-12-11",
+    "roleID": 2,
+    "sex": 1
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "filmID": 6,
+    "datetime": "2016-09-23 20:30:00",
+    "hallID": 1,
+    "price": 130.5
+  },
+  {
+    "id": 2,
+    "filmID": 8,
+    "datetime": "2016-09-23 14:00:00",
+    "hallID": 4,
+    "price": 120.5
+  },
+  {
+    "id": 3,
+    "filmID": 6,
+    "datetime": "2016-09-23 14:00:00",
+    "hallID": 2,
+    "price": 110.75
+  },
+  {
+    "id": 4,
+    "filmID": 7,
+    "datetime": "2016-09-24 12:30:00",
+    "hallID": 4,
+    "price": 122.0
+  },
+  {
+    "id": 6,
+    "filmID": 8,
+    "datetime": "2016-09-24 14:00:00",
+    "hallID": 1,
+    "price": 120.5
+  },
+  {
+    "id": 7,
+    "filmID": 7,
+    "datetime": "2016-09-25 12:30:00",
+    "hallID": 1,
+    "price": 130.5
+  },
+  {
+    "id": 8,
+    "filmID": 6,
+    "datetime": "2016-09-25 11:00:00",
+    "hallID": 4,
+    "price": 110.0
+  },
+  {
+    "id": 9,
+    "filmID": 8,
+    "datetime": "2016-09-25 15:00:00",
+    "hallID": 1,
+    "price": 122.2
+  }
+]
