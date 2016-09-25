@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.time.format.TextStyle;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Alexandr on 23.09.2016.
@@ -32,35 +33,19 @@ public class SessionServlet extends HttpServlet {
         };
         List<SessionDTO> sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date1.atStartOfDay(), date2.atStartOfDay());
         sessionDTOs.sort(comp);
-        List<String> sessions = new ArrayList<>();
-        String value;
-        for (SessionDTO sessionDTO : sessionDTOs) {
-            value = sessionDTO.getDateOfSeance().format(DateTimeFormatter.ofPattern("H':'MM")).toString() +
-                    " " + sessionDTO.getFilm().getName() + " " + sessionDTO.getHall().getName();
-            sessions.add(value);
-        }
-        request.setAttribute("date1", date1.format(DateTimeFormatter.ofPattern("dd'.'MM'.'YY")));
-        request.setAttribute("sessions1", sessions);
+        request.setAttribute("date1", date1.format(DateTimeFormatter.ofPattern("dd'.'MM'.'YY")) + " "
+                + date1.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("ru")));
+        request.setAttribute("sessions1", sessionDTOs);
         sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date2.atStartOfDay(), date3.atStartOfDay());
         sessionDTOs.sort(comp);
-        sessions = new ArrayList<>();
-        for (SessionDTO sessionDTO : sessionDTOs) {
-            value = sessionDTO.getDateOfSeance().format(DateTimeFormatter.ofPattern("H':'MM")).toString() +
-                    " " + sessionDTO.getFilm().getName() + " " + sessionDTO.getHall().getName();
-            sessions.add(value);
-        }
-        request.setAttribute("date2", date2.format(DateTimeFormatter.ofPattern("dd'.'MM'.'YY")));
-        request.setAttribute("sessions2", sessions);
+        request.setAttribute("date2", date2.format(DateTimeFormatter.ofPattern("dd'.'MM'.'YY")) + " "
+                + date2.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("ru")));
+        request.setAttribute("sessions2", sessionDTOs);
         sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date3.atStartOfDay(), date3.plusDays(1).atStartOfDay());
         sessionDTOs.sort(comp);
-        sessions = new ArrayList<>();
-        for (SessionDTO sessionDTO : sessionDTOs) {
-            value = sessionDTO.getDateOfSeance().format(DateTimeFormatter.ofPattern("H':'MM")).toString() +
-                    " " + sessionDTO.getFilm().getName() + " " + sessionDTO.getHall().getName();
-            sessions.add(value);
-        }
-        request.setAttribute("date3", date3.format(DateTimeFormatter.ofPattern("dd'.'MM'.'YY")));
-        request.setAttribute("sessions3", sessions);
+        request.setAttribute("date3", date3.format(DateTimeFormatter.ofPattern("dd'.'MM'.'YY")) + " "
+                + date3.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("ru")));
+        request.setAttribute("sessions3", sessionDTOs);
         request.getRequestDispatcher("pages/common/session.jsp").forward(request, response);
     }
 

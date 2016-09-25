@@ -7,27 +7,38 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="dtf" uri="/WEB-INF/datetimef.tld" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+
 <h1><c:out value="${date1}"/></h1>
 <p>
     <c:forEach items="${sessions1}" var="session">
-        <c:out value="${session}"/><br>
+        <c:out value="${dtf:getTime(session.dateOfSeance)}"/>
+        <c:out value="${session.film.name}"/>
+        <c:out value="${session.hall.name}"/>
+        <br>
 </c:forEach>
 </p>
 <h1><c:out value="${date2}"/></h1>
 <p>
     <c:forEach items="${sessions2}" var="session">
-        <c:out value="${session}"/><br>
+        <c:out value="${dtf:getTime(session.dateOfSeance)}"/>
+        <c:out value="${session.film.name}"/>
+        <c:out value="${session.hall.name}"/>
+        <br>
     </c:forEach>
 </p>
 <h1><c:out value="${date3}"/></h1>
 <p>
     <c:forEach items="${sessions3}" var="session">
-        <c:out value="${session}"/><br>
+        <c:out value="${dtf:getTime(session.dateOfSeance)}"/>
+        <c:out value="${session.film.name}"/>
+        <c:out value="${session.hall.name}"/>
+        <br>
     </c:forEach>
 </p>
 </body>
