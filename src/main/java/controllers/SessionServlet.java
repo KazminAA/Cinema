@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -21,14 +20,10 @@ public class SessionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
         LocalDateTime date1 = LocalDateTime.of(2016, 9, 23, 0, 0);
         LocalDateTime[] dates = {date1, date1.plusDays(1), date1.plusDays(2)};
-        Comparator<SessionDTO> comp = new Comparator<SessionDTO>() {
-            @Override
-            public int compare(SessionDTO o1, SessionDTO o2) {
-                return o1.getDateOfSeance().compareTo(o2.getDateOfSeance());
-            }
-        };
         List<SessionDTO> sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date1, date1.plusDays(3));
-        sessionDTOs.sort(comp);
+        sessionDTOs.sort((o1, o2) -> {
+            return o1.getDateOfSeance().compareTo(o2.getDateOfSeance());
+        });
         request.setAttribute("dates", dates);
         request.setAttribute("sessions", sessionDTOs);
         request.getRequestDispatcher("pages/common/session.jsp").forward(request, response);
