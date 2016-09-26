@@ -20,7 +20,9 @@
             <c:if test="${dtf:isDate(date, session)}">
                 <tr>
                     <td><c:out value="${dtf:getTime(session.dateOfSeance)}"/></td>
-                    <td><c:out value="${session.film.name}"/></td>
+                    <td>
+                        <a href="${pageContext.servletContext.contextPath}/movie?id=${session.film.id}">${session.film.name}</a>
+                    </td>
                     <td><c:out value="${session.hall.name}"/></td>
                 </tr>
             </c:if>

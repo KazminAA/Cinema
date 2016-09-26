@@ -26,4 +26,11 @@
             boolean isSessionTime(java.time.LocalDateTime, dto.SessionDTO)
         </function-signature>
     </function>
+    <function>
+        <name>durationToH</name>
+        <function-class>helpers.FieldPrintHelpers</function-class>
+        <function-signature>
+            java.lang.String durationToH(int)
+        </function-signature>
+    </function>
 </taglib>
