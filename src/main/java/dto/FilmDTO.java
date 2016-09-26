@@ -87,16 +87,16 @@ public class FilmDTO extends Entity {
         return cast;
     }
 
+    public void setCast(String cast) {
+        this.cast = cast;
+    }
+
     public void setCast(String[] cast) {
-        String result = null;
+        String result = "";
         for (String s : cast) {
             result = result + ", " + s;
         }
         this.cast = result;
-    }
-
-    public void setCast(String cast) {
-        this.cast = cast;
     }
 
     public String getDescription() {
