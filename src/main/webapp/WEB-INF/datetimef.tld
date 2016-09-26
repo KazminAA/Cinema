@@ -12,4 +12,18 @@
             java.lang.String timeFromLDT(java.time.LocalDateTime)
         </function-signature>
     </function>
+    <function>
+        <name>getDate</name>
+        <function-class>helpers.DateTimeHelpers</function-class>
+        <function-signature>
+            java.lang.String dateFormLDT(java.time.LocalDateTime)
+        </function-signature>
+    </function>
+    <function>
+        <name>isDate</name>
+        <function-class>helpers.DateTimeHelpers</function-class>
+        <function-signature>
+            boolean isSessionTime(java.time.LocalDateTime, dto.SessionDTO)
+        </function-signature>
+    </function>
 </taglib>
