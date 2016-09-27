@@ -12,10 +12,10 @@ import java.util.List;
  */
 public final class FilmDaoImpl extends CrudDao<Film> {
     private static FilmDaoImpl filmDao;
-    private final String INSERT = "INSERT INTO film (name, year, duration, genre, country, produser, description, cast)" +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    private final String INSERT = "INSERT INTO film (name, year, duration, genre, country, produser, description, cast, smallposter, bigposter)" +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private final String UPDATE = "UPDATE film SET name=?, year=?, duration=?, genre=?, country=?, produser=?, description=?, " +
-            "cast=? WHERE id=?";
+            "cast=?, smallposter=?, bigposter=? WHERE id=?";
 
     private FilmDaoImpl(Class<Film> type) {
         super(type);
@@ -42,6 +42,8 @@ public final class FilmDaoImpl extends CrudDao<Film> {
             film.setProduser(resultSet.getString("produser"));
             film.setDescription(resultSet.getString("description"));
             film.setCast(resultSet.getString("cast"));
+            film.setSmallPoster(resultSet.getString("smallposter"));
+            film.setBigPoster(resultSet.getString("bigposter"));
             result.add(film);
         }
         return result;
@@ -58,7 +60,7 @@ public final class FilmDaoImpl extends CrudDao<Film> {
     public PreparedStatement createUpdateStatement(Connection connection, Film entity) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
         prepareCommon(entity, preparedStatement);
-        preparedStatement.setInt(9, entity.getId());
+        preparedStatement.setInt(11, entity.getId());
         return preparedStatement;
     }
 
@@ -71,5 +73,7 @@ public final class FilmDaoImpl extends CrudDao<Film> {
         preparedStatement.setString(6, entity.getProduser());
         preparedStatement.setString(7, entity.getDescription());
         preparedStatement.setString(8, entity.getCast());
+        preparedStatement.setString(9, entity.getSmallPoster());
+        preparedStatement.setString(10, entity.getBigPoster());
     }
 }

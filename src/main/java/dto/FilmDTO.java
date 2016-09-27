@@ -15,6 +15,8 @@ public class FilmDTO extends Entity {
     private String produser;
     private String cast;
     private String description;
+    private String smallPoster;
+    private String bigPoster;
 
     public FilmDTO(String name, int yearOfRelease, String genre, int hours, int minutes, String country, String produser, String description, String... cast) {
         setName(name);
@@ -87,10 +89,6 @@ public class FilmDTO extends Entity {
         return cast;
     }
 
-    public void setCast(String cast) {
-        this.cast = cast;
-    }
-
     public void setCast(String[] cast) {
         String result = "";
         for (String s : cast) {
@@ -99,12 +97,32 @@ public class FilmDTO extends Entity {
         this.cast = result;
     }
 
+    public void setCast(String cast) {
+        this.cast = cast;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getSmallPoster() {
+        return smallPoster;
+    }
+
+    public void setSmallPoster(String smallPoster) {
+        this.smallPoster = smallPoster;
+    }
+
+    public String getBigPoster() {
+        return bigPoster;
+    }
+
+    public void setBigPoster(String bigPoster) {
+        this.bigPoster = bigPoster;
     }
 
     @Override
