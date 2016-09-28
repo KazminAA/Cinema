@@ -14,12 +14,12 @@ import java.io.*;
 public class ImageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //File file = new File("/pictures/" + request.getParameter("file"));
-        InputStream is = ImageServlet.class.getClassLoader().getResourceAsStream("pictures/" + request.getParameter("file"));
-        BufferedInputStream in = new BufferedInputStream(is);
-        int ch;
-        while ((ch = in.read()) != -1) {
-            response.getOutputStream().write(ch);
+        try (InputStream is = ImageServlet.class.getClassLoader().getResourceAsStream("pictures/" + request.getParameter("file"));
+             BufferedInputStream in = new BufferedInputStream(is);) {
+            int ch;
+            while ((ch = in.read()) != -1) {
+                response.getOutputStream().write(ch);
+            }
         }
     }
 

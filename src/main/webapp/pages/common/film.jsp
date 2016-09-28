@@ -15,32 +15,40 @@
 <h1>${film.name}</h1>
 <table>
     <tr>
-        <td>Жанр:</td>
-        <td>${film.genre}</td>
-    </tr>
-    <tr>
-        <td>Длительность:</td>
-        <td>${h:durationToH(film.durationMin)}</td>
-    </tr>
-    <tr>
-        <td>Год:</td>
-        <td>${film.yearOfRelease}</td>
-    </tr>
-    <tr>
-        <td>Страна:</td>
-        <td>${film.country}</td>
-    </tr>
-    <tr>
-        <td>Режисер:</td>
-        <td>${film.produser}</td>
-    </tr>
-    <tr>
-        <td>В ролях:</td>
-        <td>${film.cast}</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>${film.description}</td>
+        <td><img width="500" height="750" src="${pageContext.servletContext.contextPath}/image?file=${film.bigPoster}">
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td>Жанр:</td>
+                    <td>${film.genre}</td>
+                </tr>
+                <tr>
+                    <td>Длительность:</td>
+                    <td>${h:durationToH(film.durationMin)}</td>
+                </tr>
+                <tr>
+                    <td>Год:</td>
+                    <td>${film.yearOfRelease}</td>
+                </tr>
+                <tr>
+                    <td>Страна:</td>
+                    <td>${film.country}</td>
+                </tr>
+                <tr>
+                    <td>Режисер:</td>
+                    <td>${film.produser}</td>
+                </tr>
+                <tr>
+                    <td>В ролях:</td>
+                    <td>${film.cast}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>${film.description}</td>
+                </tr>
+            </table>
+        </td>
     </tr>
 </table>
 </body>
