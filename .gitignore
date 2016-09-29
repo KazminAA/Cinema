@@ -58,3 +58,6 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+/.idea/
+Будет удалено .idea/dataSources/
+Будет удалено target/
