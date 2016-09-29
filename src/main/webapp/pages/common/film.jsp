@@ -15,7 +15,7 @@
 <body>
 <c:set var="url" value="${pageContext.servletContext.contextPath}/movie?id=${film.id}" scope="session"/>
 <h1>${film.name}</h1>
-<font color="orange">Рейтинг: <c:out value="${film.raiting}"/></font>
+<h3 style="color: #ff8c00">Рейтинг: <c:out value="${film.raiting}"/></h3>
 <c:if test="${sessionScope.user != null}">
     <hr>
     <form name="Raiting" action="${pageContext.servletContext.contextPath}/setraiting">
@@ -39,7 +39,7 @@
                     <td>Жанр:</td>
                     <td>${film.genre}</td>
                 </tr>
-                <tr>
+                <tr style="color: darkcyan">
                     <td>Длительность:</td>
                     <td>${h:durationToH(film.durationMin)}</td>
                 </tr>
@@ -67,6 +67,7 @@
         </td>
     </tr>
 </table>
-<a href="${pageContext.servletContext.contextPath}/">Все ближайшие сеансы</a>
+<hr>
+<c:import url="upbottom.jsp"/>
 </body>
 </html>

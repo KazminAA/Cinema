@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,9 +22,23 @@ public class SessionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
         LocalDateTime date1 = LocalDateTime.of(2016, 9, 23, 0, 0);
         LocalDateTime[] dates = {date1, date1.plusDays(1), date1.plusDays(2)};
-        List<SessionDTO> sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date1, date1.plusDays(3));
+        List<SessionDTO> sessionDTOs;
+        if (request.getParameter("film") != null) {
+            sessionDTOs = SessionServiceImpl.getInstance().getSessionsByFK("filmID", request.getParameter("film"));
+            List<LocalDateTime> datesin = new LinkedList<>();
+            for (SessionDTO sessionDTO : sessionDTOs) {
+                if (sessionDTO.getDateOfSeance().compareTo(date1) >= 0) {
+                    datesin.add(sessionDTO.getDateOfSeance());
+                }
+                dates = new LocalDateTime[datesin.size()];
+                datesin.toArray(dates);
+            }
+        } else {
+            sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date1, date1.plusDays(3));
+        }
         sessionDTOs.sort((o1, o2) -> o1.getDateOfSeance().compareTo(o2.getDateOfSeance()));
         request.setAttribute("dates", dates);
+        System.out.println(Arrays.toString(dates));
         request.setAttribute("sessions", sessionDTOs);
         request.getRequestDispatcher("pages/common/session.jsp").forward(request, response);
     }

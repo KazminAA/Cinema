@@ -10,7 +10,7 @@
 <%@ taglib prefix="dtf" uri="/WEB-INF/datetimef.tld" %>
 <html>
 <head>
-    <title>Расписание сеансов на ближайший час.</title>
+    <title>Расписание сеансов на ближайшее время.</title>
 </head>
 <body>
 <c:set var="url" scope="session" value="${pageContext.servletContext.contextPath}/"/>
@@ -37,6 +37,9 @@
     </c:forEach>
     </table>
 </c:forEach>
-
+<hr>
+<c:import url="upbottom.jsp">
+    <c:param name="status" value="1"/>
+</c:import>
 </body>
 </html>
