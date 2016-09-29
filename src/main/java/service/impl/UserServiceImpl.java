@@ -74,4 +74,9 @@ public class UserServiceImpl implements Service<UserDTO> {
         UserDTO result = (users.size() > 0) ? beanMapper.singleMapper(users.get(0), UserDTO.class) : null;
         return result;
     }
+
+    @Override
+    public void updateFieldIn(String field, String value, int key) {
+        userDao.updateFieldIn(field, value, key);
+    }
 }

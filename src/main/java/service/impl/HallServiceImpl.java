@@ -64,4 +64,9 @@ public final class HallServiceImpl implements Service<HallDTO> {
         Hall hall = beanMapper.singleMapper(entity, Hall.class);
         hallDao.update(hall);
     }
+
+    @Override
+    public void updateFieldIn(String field, String value, int key) {
+        hallDao.updateFieldIn(field, value, key);
+    }
 }

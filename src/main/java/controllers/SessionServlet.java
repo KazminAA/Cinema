@@ -21,9 +21,7 @@ public class SessionServlet extends HttpServlet {
         LocalDateTime date1 = LocalDateTime.of(2016, 9, 23, 0, 0);
         LocalDateTime[] dates = {date1, date1.plusDays(1), date1.plusDays(2)};
         List<SessionDTO> sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date1, date1.plusDays(3));
-        sessionDTOs.sort((o1, o2) -> {
-            return o1.getDateOfSeance().compareTo(o2.getDateOfSeance());
-        });
+        sessionDTOs.sort((o1, o2) -> o1.getDateOfSeance().compareTo(o2.getDateOfSeance()));
         request.setAttribute("dates", dates);
         request.setAttribute("sessions", sessionDTOs);
         request.getRequestDispatcher("pages/common/session.jsp").forward(request, response);

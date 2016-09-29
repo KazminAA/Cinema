@@ -63,4 +63,9 @@ public final class FilmServiceImpl implements Service<FilmDTO> {
         Film film = beanMapper.singleMapper(entity, Film.class);
         filmDao.update(film);
     }
+
+    @Override
+    public void updateFieldIn(String field, String value, int key) {
+        filmDao.updateFieldIn(field, value, key);
+    }
 }

@@ -19,4 +19,6 @@ public interface Service<T extends Entity> {
 
     void update(T entity);
 
+    void updateFieldIn(String field, String value, int key);
+
 }

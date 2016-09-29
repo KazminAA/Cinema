@@ -76,4 +76,9 @@ public class SessionServiceImpl implements Service<SessionDTO> {
         List<SessionDTO> result = beanMapper.listMapToList(sessions, SessionDTO.class);
         return result;
     }
+
+    @Override
+    public void updateFieldIn(String field, String value, int key) {
+        sessionDao.updateFieldIn(field, value, key);
+    }
 }

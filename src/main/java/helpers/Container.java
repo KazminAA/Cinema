@@ -136,4 +136,9 @@ public class Container<V extends Entity> implements GenericStorage<Integer, V>, 
     public void deleteBy(String keyFieldName, String key) {
 
     }
+
+    @Override
+    public void updateFieldIn(String field, String value, int key) {
+
+    }
 }

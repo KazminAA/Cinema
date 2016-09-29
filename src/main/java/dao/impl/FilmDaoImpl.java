@@ -12,10 +12,10 @@ import java.util.List;
  */
 public final class FilmDaoImpl extends CrudDao<Film> {
     private static FilmDaoImpl filmDao;
-    private final String INSERT = "INSERT INTO film (name, year, duration, genre, country, produser, description, cast, smallposter, bigposter)" +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private final String INSERT = "INSERT INTO film (name, year, duration, genre, country, produser, description, cast, smallposter, bigposter, rait)" +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
     private final String UPDATE = "UPDATE film SET name=?, year=?, duration=?, genre=?, country=?, produser=?, description=?, " +
-            "cast=?, smallposter=?, bigposter=? WHERE id=?";
+            "cast=?, smallposter=?, bigposter=?, rait=? WHERE id=?";
 
     private FilmDaoImpl(Class<Film> type) {
         super(type);
@@ -44,6 +44,7 @@ public final class FilmDaoImpl extends CrudDao<Film> {
             film.setCast(resultSet.getString("cast"));
             film.setSmallPoster(resultSet.getString("smallposter"));
             film.setBigPoster(resultSet.getString("bigposter"));
+            film.setRaiting(resultSet.getFloat("rait"));
             result.add(film);
         }
         return result;
@@ -60,7 +61,7 @@ public final class FilmDaoImpl extends CrudDao<Film> {
     public PreparedStatement createUpdateStatement(Connection connection, Film entity) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
         prepareCommon(entity, preparedStatement);
-        preparedStatement.setInt(11, entity.getId());
+        preparedStatement.setInt(12, entity.getId());
         return preparedStatement;
     }
 
@@ -75,5 +76,6 @@ public final class FilmDaoImpl extends CrudDao<Film> {
         preparedStatement.setString(8, entity.getCast());
         preparedStatement.setString(9, entity.getSmallPoster());
         preparedStatement.setString(10, entity.getBigPoster());
+        preparedStatement.setFloat(11, entity.getRaiting());
     }
 }

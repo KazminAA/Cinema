@@ -20,6 +20,7 @@ public abstract class CrudDao<T extends Entity> implements Dao<T> {
     public static final String SELECT_BY_FOREIGN_KEY = "SELECT * FROM %s WHERE %s=?";
     public static final String DELETE_BY_FOREIGN_KEY = "DELETE FROM %s WHERE %s=?";
     public static final String DELETE_BY_ID = "DELETE FROM %s WHERE id = ?";
+    public static final String UPDATE_FIELD = "UPDATE %s SET %s=? WHERE id=?";
     private Class<T> type;
     private DataSource dataSource;
 
@@ -117,6 +118,19 @@ public abstract class CrudDao<T extends Entity> implements Dao<T> {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
             preparedStatement.setString(1, key);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateFieldIn(String field, String value, int key) {
+        String sql = String.format(UPDATE_FIELD, type.getSimpleName().toLowerCase(), field);
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
+            preparedStatement.setString(1, value);
+            preparedStatement.setInt(2, key);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

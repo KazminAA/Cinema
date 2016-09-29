@@ -64,4 +64,9 @@ public class TicketServiceImpl implements Service<TicketDTO> {
         Ticket ticket = beanMapper.singleMapper(entity, Ticket.class);
         ticketDao.update(ticket);
     }
+
+    @Override
+    public void updateFieldIn(String field, String value, int key) {
+        ticketDao.updateFieldIn(field, value, key);
+    }
 }

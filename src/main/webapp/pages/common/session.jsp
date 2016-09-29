@@ -13,6 +13,11 @@
     <title>Расписание сеансов на ближайший час.</title>
 </head>
 <body>
+<c:set var="url" scope="session" value="${pageContext.servletContext.contextPath}/"/>
+<c:choose>
+    <c:when test="${sessionScope.user != null}">Здравствуйте <c:out value="${user.userName}"/>!</c:when>
+    <c:otherwise><a href="${pageContext.servletContext.contextPath}/pages/common/login.jsp">Вход</a></c:otherwise>
+</c:choose>
 <c:forEach items="${dates}" var="date">
     <h1><c:out value="${dtf:getDate(date)}"/></h1>
     <table frame="hsides" width="600">
@@ -22,7 +27,7 @@
                     <td><img width="40" height="50"
                              src="${pageContext.servletContext.contextPath}/image?file=${session.film.smallPoster}">
                     </td>
-                    <td><c:out value="${dtf:getTime(session.dateOfSeance)}"/></td>
+                    <td style="color: orange"><c:out value="${dtf:getTime(session.dateOfSeance)}"/></td>
                     <td>
                         <a href="${pageContext.servletContext.contextPath}/movie?id=${session.film.id}">${session.film.name}</a>
                     </td>

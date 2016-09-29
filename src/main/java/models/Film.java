@@ -14,6 +14,7 @@ public class Film extends Entity {
     private String description;
     private String smallPoster;
     private String bigPoster;
+    private float raiting;
 
     public Film(String name, int yearOfRelease, String genre, int hours, int minutes, String country, String produser, String description, String... cast) {
         setName(name);
@@ -86,16 +87,16 @@ public class Film extends Entity {
         return cast;
     }
 
+    public void setCast(String cast) {
+        this.cast = cast;
+    }
+
     public void setCast(String[] cast) {
         String result = "";
         for (String s : cast) {
             result = result + ", " + s;
         }
         this.cast = result;
-    }
-
-    public void setCast(String cast) {
-        this.cast = cast;
     }
 
     public String getDescription() {
@@ -120,6 +121,14 @@ public class Film extends Entity {
 
     public void setBigPoster(String bigPoster) {
         this.bigPoster = bigPoster;
+    }
+
+    public float getRaiting() {
+        return raiting;
+    }
+
+    public void setRaiting(float raiting) {
+        this.raiting = raiting;
     }
 
     @Override

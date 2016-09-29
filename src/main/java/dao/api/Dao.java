@@ -22,4 +22,6 @@ public interface Dao<T extends Entity> {
     List<T> getBy(String keyFieldName, String key);
 
     void deleteBy(String keyFieldName, String key);
+
+    void updateFieldIn(String field, String value, int key);
 }
