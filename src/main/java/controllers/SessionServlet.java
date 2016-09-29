@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -38,7 +37,6 @@ public class SessionServlet extends HttpServlet {
         }
         sessionDTOs.sort((o1, o2) -> o1.getDateOfSeance().compareTo(o2.getDateOfSeance()));
         request.setAttribute("dates", dates);
-        System.out.println(Arrays.toString(dates));
         request.setAttribute("sessions", sessionDTOs);
         request.getRequestDispatcher("pages/common/session.jsp").forward(request, response);
     }

@@ -15,9 +15,12 @@
 <table cellspacing="10">
     <tr>
         <td><a href="${pageContext.servletContext.contextPath}/">Все ближайшие сеансы</a></td>
-        <td><a href="${pageContext.servletContext.contextPath}/movie?all=1">Все фильмы по рейтингу</a></td>
-        <c:if test="${param.status != 1}">
-            <td><a href="${pageContext.servletContext.contextPath}/?film=${film.id}">Все сеансы на этот фильм</a></td>
+        <c:if test="${param.status != 2}">
+            <td><a href="${pageContext.servletContext.contextPath}/movie?status=1">Все фильмы по рейтингу</a></td>
+            <c:if test="${param.status != 1}">
+                <td><a href="${pageContext.servletContext.contextPath}/?film=${film.id}">Все сеансы на этот фильм</a>
+                </td>
+            </c:if>
         </c:if>
     </tr>
 </table>
