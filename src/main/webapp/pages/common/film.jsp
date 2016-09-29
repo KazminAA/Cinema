@@ -67,5 +67,6 @@
         </td>
     </tr>
 </table>
+<a href="${pageContext.servletContext.contextPath}/">Все ближайшие сеансы</a>
 </body>
 </html>
