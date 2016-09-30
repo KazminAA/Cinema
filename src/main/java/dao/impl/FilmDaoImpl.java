@@ -13,7 +13,7 @@ import java.util.List;
 public final class FilmDaoImpl extends CrudDao<Film> {
     private static FilmDaoImpl filmDao;
     private final String INSERT = "INSERT INTO film (name, year, duration, genre, country, produser, description, cast, smallposter, bigposter, rait)" +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private final String UPDATE = "UPDATE film SET name=?, year=?, duration=?, genre=?, country=?, produser=?, description=?, " +
             "cast=?, smallposter=?, bigposter=?, rait=? WHERE id=?";
 
@@ -76,6 +76,6 @@ public final class FilmDaoImpl extends CrudDao<Film> {
         preparedStatement.setString(8, entity.getCast());
         preparedStatement.setString(9, entity.getSmallPoster());
         preparedStatement.setString(10, entity.getBigPoster());
-        preparedStatement.setFloat(11, entity.getRaiting());
+        preparedStatement.setFloat(11, 0);
     }
 }

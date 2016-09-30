@@ -24,7 +24,7 @@ public class FilmServlet extends HttpServlet {
             request.getRequestDispatcher("pages/common/film.jsp").forward(request, response);
         } else {
             List<FilmDTO> films = FilmServiceImpl.getInstance().getAll();
-            films.sort((o1, o2) -> (int) (o1.getRaiting() - o2.getRaiting()));
+            films.sort((o1, o2) -> (Float.compare(o2.getRaiting(), o1.getRaiting())));
             request.setAttribute("films", films);
             request.getRequestDispatcher("/pages/common/filmsrait.jsp").forward(request, response);
         }

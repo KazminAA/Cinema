@@ -19,7 +19,8 @@ public class FilmDTO extends Entity {
     private String bigPoster;
     private float raiting;
 
-    public FilmDTO(String name, int yearOfRelease, String genre, int hours, int minutes, String country, String produser, String description, String... cast) {
+    public FilmDTO(String name, int yearOfRelease, String genre, int hours, int minutes, String country, String produser,
+                   String bigPoster, String smallPoster, String description, String... cast) {
         setName(name);
         setGenre(genre);
         setYearOfRelease(yearOfRelease);
@@ -28,6 +29,9 @@ public class FilmDTO extends Entity {
         setProduser(produser);
         setCast(cast);
         setDescription(description);
+        setBigPoster(bigPoster);
+        setSmallPoster(smallPoster);
+        setRaiting(0);
     }
 
     public FilmDTO() {
@@ -90,16 +94,16 @@ public class FilmDTO extends Entity {
         return cast;
     }
 
-    public void setCast(String cast) {
-        this.cast = cast;
-    }
-
     public void setCast(String[] cast) {
         String result = "";
         for (String s : cast) {
             result = result + ", " + s;
         }
         this.cast = result;
+    }
+
+    public void setCast(String cast) {
+        this.cast = cast;
     }
 
     public String getDescription() {

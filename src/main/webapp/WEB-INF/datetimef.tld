@@ -33,4 +33,11 @@
             java.lang.String durationToH(int)
         </function-signature>
     </function>
+    <function>
+        <name>stringEq</name>
+        <function-class>helpers.FieldPrintHelpers</function-class>
+        <function-signature>
+            boolean stringEq(java.lang.String,java.lang.String)
+        </function-signature>
+    </function>
 </taglib>
