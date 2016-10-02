@@ -18,6 +18,15 @@
     <c:when test="${sessionScope.user != null}">Здравствуйте <c:out value="${user.userName}"/>!</c:when>
     <c:otherwise><a href="${pageContext.servletContext.contextPath}/pages/common/login.jsp">Вход</a></c:otherwise>
 </c:choose>
+<table cellpadding="30">
+    <tr>
+        <c:forEach items="${hallDTOs}" var="hallDTO">
+            <td><a href="${pageContext.servletContext.contextPath}/?select=hall&hall=${hallDTO.id}">${hallDTO.name}</a>
+            </td>
+        </c:forEach>
+        <td><a href="${pageContext.servletContext.contextPath}/">Все залы</a></td>
+    </tr>
+</table>
 <c:forEach items="${dates}" var="date">
     <h1><c:out value="${dtf:getDate(date)}"/></h1>
     <table frame="hsides" width="600">

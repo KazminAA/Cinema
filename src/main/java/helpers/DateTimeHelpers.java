@@ -2,6 +2,7 @@ package helpers;
 
 import dto.SessionDTO;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
@@ -20,7 +21,12 @@ public class DateTimeHelpers {
                 + ldt.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("ru"));
     }
 
-    public static boolean isSessionTime(LocalDateTime date, SessionDTO sessionDTO) {
-        return sessionDTO.getDateOfSeance().toLocalDate().equals(date.toLocalDate());
+    public static String dateFormLDT(LocalDate ldt) {
+        return ldt.format(DateTimeFormatter.ofPattern("dd'.'MM'.'YY")) + " "
+                + ldt.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("ru"));
+    }
+
+    public static boolean isSessionTime(LocalDate date, SessionDTO sessionDTO) {
+        return sessionDTO.getDateOfSeance().toLocalDate().equals(date);
     }
 }

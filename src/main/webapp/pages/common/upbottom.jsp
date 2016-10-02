@@ -18,7 +18,8 @@
         <c:if test="${param.status != 2}">
             <td><a href="${pageContext.servletContext.contextPath}/movie?status=1">Все фильмы по рейтингу</a></td>
             <c:if test="${param.status != 1}">
-                <td><a href="${pageContext.servletContext.contextPath}/?film=${film.id}">Все сеансы на этот фильм</a>
+                <td><a href="${pageContext.servletContext.contextPath}/?select=film&film=${film.id}">Все сеансы на этот
+                    фильм</a>
                 </td>
             </c:if>
         </c:if>

@@ -16,14 +16,14 @@
         <name>getDate</name>
         <function-class>helpers.DateTimeHelpers</function-class>
         <function-signature>
-            java.lang.String dateFormLDT(java.time.LocalDateTime)
+            java.lang.String dateFormLDT(java.time.LocalDate)
         </function-signature>
     </function>
     <function>
         <name>isDate</name>
         <function-class>helpers.DateTimeHelpers</function-class>
         <function-signature>
-            boolean isSessionTime(java.time.LocalDateTime, dto.SessionDTO)
+            boolean isSessionTime(java.time.LocalDate, dto.SessionDTO)
         </function-signature>
     </function>
     <function>
