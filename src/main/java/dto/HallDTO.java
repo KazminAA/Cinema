@@ -38,7 +38,7 @@ public class HallDTO extends Entity {
 
     @Override
     public String toString() {
-        return name + " " + Arrays.toString(structure);
+        return name + " " + Arrays.toString(structure) + " id=" + getId();
     }
 
     @Override
