@@ -15,6 +15,7 @@
 </head>
 <body>
 <h1>Введите поля для ${entity}</h1>
+<c:out value="${sessionScope.message}"/>
 <form name="Addentity" method="post" accept-charset="UTF-8"
       action="${pageContext.servletContext.contextPath}/admin/add${entity}">
     <c:forEach items="${fields}" var="fieldname">

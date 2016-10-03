@@ -23,19 +23,16 @@ public class AddFilmServlet extends HttpServlet {
         try {
             duration = Integer.parseInt(request.getParameter("durationMin"));
             year = Integer.parseInt(request.getParameter("yearOfRelease"));
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-        FilmDTO filmDTO = new FilmDTO(request.getParameter("name"), year,
+            FilmDTO filmDTO = new FilmDTO(request.getParameter("name"), year,
                 request.getParameter("genre"), 0, duration,
                 request.getParameter("country"), request.getParameter("produser"), request.getParameter("bigPoster"),
                 request.getParameter("smallPoster"), request.getParameter("description"), request.getParameter("cast"));
-        System.out.println(filmDTO.getName());
-        System.out.println(filmDTO.getBigPoster());
-        System.out.println(filmDTO.getDescription());
-        System.out.println(filmDTO.getDurationMin());
-        FilmServiceImpl.getInstance().save(filmDTO);
-        request.getRequestDispatcher("../pages/admin/select.jsp").forward(request, response);
+            FilmServiceImpl.getInstance().save(filmDTO);
+            request.getRequestDispatcher("../pages/admin/select.jsp").forward(request, response);
+        } catch (NumberFormatException e) {
+            request.getSession().setAttribute("message", "Неверно заданы год или длительность.");
+            response.sendRedirect(request.getContextPath() + "/admin?select=filmprepare");
+        }
     }
 
     @Override
