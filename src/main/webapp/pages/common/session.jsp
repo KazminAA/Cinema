@@ -14,10 +14,19 @@
 </head>
 <body>
 <c:set var="url" scope="session" value="${pageContext.servletContext.contextPath}/"/>
+<table cellpadding="10">
+    <tr>
 <c:choose>
-    <c:when test="${sessionScope.user != null}">Здравствуйте <c:out value="${user.userName}"/>!</c:when>
-    <c:otherwise><a href="${pageContext.servletContext.contextPath}/pages/common/login.jsp">Вход</a></c:otherwise>
+    <c:when test="${sessionScope.user != null}">
+        <td>Здравствуйте <c:out value="${user.userName}"/>!</td>
+    </c:when>
+    <c:otherwise>
+        <td><a href="${pageContext.servletContext.contextPath}/pages/common/login.jsp">Вход</a></td>
+        <td><a href="${pageContext.servletContext.contextPath}/pages/common/register.jsp">Регистрация</a></td>
+    </c:otherwise>
 </c:choose>
+    </tr>
+</table>
 <table cellpadding="30">
     <tr>
         <c:forEach items="${hallDTOs}" var="hallDTO">

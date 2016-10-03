@@ -18,7 +18,7 @@ public class UserDTO extends Entity {
     private UserRoleDTO role;
     private Boolean sex;
 
-    public UserDTO(String login, String pwd, String email, String userName, String userSurname, UserRoleDTO role, Boolean sex) {
+    public UserDTO(String login, String pwd, String email, String userName, String userSurname, UserRoleDTO role, Boolean sex, LocalDate birthday) {
         setLogin(login);
         setEmail(email);
         setUserName(userName);
@@ -26,6 +26,7 @@ public class UserDTO extends Entity {
         setRole(role);
         setPwd(pwd);
         setSex(sex);
+        setBirthday(birthday);
     }
 
     public UserDTO() {

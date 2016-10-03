@@ -71,7 +71,17 @@ public class UserServiceImpl implements Service<UserDTO> {
 
     public UserDTO getByLogin(String login) {
         List<User> users = userDao.getBy("login", login);
-        UserDTO result = (users.size() > 0) ? beanMapper.singleMapper(users.get(0), UserDTO.class) : null;
+        UserDTO result = getUserByCommon(users);
+        return result;
+    }
+
+    private UserDTO getUserByCommon(List<User> users) {
+        return (users.size() > 0) ? beanMapper.singleMapper(users.get(0), UserDTO.class) : null;
+    }
+
+    public UserDTO getByEmail(String key) {
+        List<User> users = userDao.getBy("email", key);
+        UserDTO result = getUserByCommon(users);
         return result;
     }
 
