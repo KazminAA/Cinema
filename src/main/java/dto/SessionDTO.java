@@ -19,6 +19,17 @@ public class SessionDTO extends Entity {
     private Entity hall;
     private BigDecimal price;
 
+    public SessionDTO(Entity film, LocalDateTime dateOfSeance, Entity hall, BigDecimal price) {
+        this.film = film;
+        this.dateOfSeance = dateOfSeance;
+        this.hall = hall;
+        this.price = price;
+    }
+
+    public SessionDTO() {
+
+    }
+
     public Entity getFilmAsEntity() {
         return film;
     }

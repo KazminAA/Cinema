@@ -21,12 +21,22 @@
       action="${pageContext.servletContext.contextPath}/admin/add${entity}">
     <c:forEach items="${fields}" var="fieldname">
         <c:choose>
-            <c:when test="${fieldname eq 'filmID'}">
+            <c:when test="${fieldname eq 'film'}">
                 <select name="filmID">
-                    <c:forEach items="${films}" var="film">
+                    <c:forEach items="${sessionScope.films}" var="film">
                         <option value="${film.id}">${film.name}</option>
                     </c:forEach>
-                </select>
+                </select><br>
+            </c:when>
+            <c:when test="${fieldname eq 'hall'}">
+                <select name="hallID">
+                    <c:forEach items="${sessionScope.halls}" var="hall">
+                        <option value="${hall.id}">${hall.name}</option>
+                    </c:forEach>
+                </select><br>
+            </c:when>
+            <c:when test="${fieldname eq 'dateOfSeance'}">
+                <input type="datetime-local" name="${fieldname}"/><br>
             </c:when>
             <c:otherwise>
                 ${fieldname}: <input type="text" name="${fieldname}"/><br>

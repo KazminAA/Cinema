@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Alexandr on 23.09.2016.
@@ -23,39 +21,43 @@ import java.util.Set;
 public class SessionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
-        LocalDateTime date1 = LocalDateTime.of(2016, 9, 23, 0, 0);
-        List<HallDTO> hallDTOs = HallServiceImpl.getInstance().getAll();
-        LocalDate[] dates = {date1.toLocalDate(), date1.plusDays(1).toLocalDate(), date1.plusDays(2).toLocalDate()};
-        List<SessionDTO> sessionDTOs = null;
         String selectBy = request.getParameter("select");
+        List<SessionDTO> sessionDTOs, sessions;
+        if (request.getSession().getAttribute("sessionsDTO") == null) {
+            LocalDateTime date1 = LocalDateTime.of(2016, 9, 23, 0, 0);
+            List<HallDTO> hallDTOs = HallServiceImpl.getInstance().getAll();
+            LocalDate[] dates = {date1.toLocalDate(), date1.plusDays(1).toLocalDate(), date1.plusDays(2).toLocalDate()};
+            sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date1, date1.plusDays(3));
+            sessionDTOs.sort((o2, o1) -> o2.getDateOfSeance().compareTo(o1.getDateOfSeance()));
+            request.getSession().setAttribute("hallDTOs", hallDTOs);
+            request.getSession().setAttribute("dates", dates);
+            System.out.println(Arrays.toString(dates));
+            request.getSession().setAttribute("sessionsDTO", sessionDTOs);
+        } else {
+            sessionDTOs = (List<SessionDTO>) request.getSession().getAttribute("sessionsDTO");
+        }
         if (selectBy != null) {
-            switch (selectBy) {
-                case "film": {
-                    sessionDTOs = SessionServiceImpl.getInstance().getSessionsByFK("filmID", request.getParameter("film"));
-                    break;
-                }
-                case "hall": {
-                    sessionDTOs = SessionServiceImpl.getInstance().getSessionsByFK("hallID", request.getParameter("hall"));
-                    break;
-                }
-            }
-            Set<LocalDate> datesin = new LinkedHashSet<>();
+            sessions = new LinkedList<>();
             for (SessionDTO sessionDTO : sessionDTOs) {
-                if (sessionDTO.getDateOfSeance().toLocalDate().compareTo(date1.toLocalDate()) >= 0) {
-                    System.out.println(sessionDTO.getDateOfSeance());
-                    System.out.println(sessionDTO.getDateOfSeance().hashCode());
-                    datesin.add(sessionDTO.getDateOfSeance().toLocalDate());
+                switch (selectBy) {
+                    case "film": {
+                        if (sessionDTO.getFilm().getId() == Integer.parseInt(request.getParameter("film"))) {
+                            sessions.add(sessionDTO);
+                        }
+                        break;
+                    }
+                    case "hall": {
+                        if (sessionDTO.getHall().getId() == Integer.parseInt(request.getParameter("hall"))) {
+                            sessions.add(sessionDTO);
+                        }
+                        break;
+                    }
                 }
-                dates = new LocalDate[datesin.size()];
-                datesin.toArray(dates);
             }
         } else {
-            sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date1, date1.plusDays(3));
+            sessions = sessionDTOs;
         }
-        sessionDTOs.sort((o1, o2) -> o1.getDateOfSeance().compareTo(o2.getDateOfSeance()));
-        request.setAttribute("hallDTOs", hallDTOs);
-        request.setAttribute("dates", dates);
-        request.setAttribute("sessions", sessionDTOs);
+        request.setAttribute("sessions", sessions);
         request.getRequestDispatcher("pages/common/session.jsp").forward(request, response);
     }
 

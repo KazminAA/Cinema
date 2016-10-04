@@ -29,14 +29,14 @@
 </table>
 <table cellpadding="30">
     <tr>
-        <c:forEach items="${hallDTOs}" var="hallDTO">
+        <c:forEach items="${sessionScope.hallDTOs}" var="hallDTO">
             <td><a href="${pageContext.servletContext.contextPath}/?select=hall&hall=${hallDTO.id}">${hallDTO.name}</a>
             </td>
         </c:forEach>
         <td><a href="${pageContext.servletContext.contextPath}/">Все залы</a></td>
     </tr>
 </table>
-<c:forEach items="${dates}" var="date">
+<c:forEach items="${sessionScope.dates}" var="date">
     <h1><c:out value="${dtf:getDate(date)}"/></h1>
     <table frame="hsides" width="600">
         <c:forEach items="${sessions}" var="session">

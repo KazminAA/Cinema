@@ -12,6 +12,7 @@
 </head>
 <body>
 <a href="${pageContext.servletContext.contextPath}/admin?select=filmprepare">Добавить фильм в базу</a>
-
+<br>
+<a href="${pageContext.servletContext.contextPath}/admin?select=sessionprepare">Добавить сеанс</a>
 </body>
 </html>

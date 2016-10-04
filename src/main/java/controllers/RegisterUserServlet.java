@@ -51,7 +51,6 @@ public class RegisterUserServlet extends HttpServlet {
 
     private void setReqErr(HttpServletRequest request, HttpServletResponse response, String message) throws IOException {
         request.getSession().setAttribute("message", message);
-        request.setAttribute("fields", request.getAttribute("fields"));
         response.sendRedirect(request.getContextPath() + "/pages/common/register.jsp");
     }
 
