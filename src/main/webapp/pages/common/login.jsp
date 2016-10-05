@@ -17,7 +17,7 @@
 <form name="Login" method="post" accept-charset="UTF-8" action="${pageContext.servletContext.contextPath}/login">
     <input type="text" name="login"/><br>
     <input type="password" name="password"/>
-    <input type="submit" style="border: none" name="Login"/>
+    <input type="submit" style="border: none" name="Login" value="Войти"/>
 </form>
 </body>
 </html>

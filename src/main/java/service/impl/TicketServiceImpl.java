@@ -69,4 +69,10 @@ public class TicketServiceImpl implements Service<TicketDTO> {
     public void updateFieldIn(String field, String value, int key) {
         ticketDao.updateFieldIn(field, value, key);
     }
+
+    public List<TicketDTO> getUserTickets(int userID) {
+        List<Ticket> tickets = ticketDao.getBy("userID", Integer.toString(userID));
+        List<TicketDTO> result = beanMapper.listMapToList(tickets, TicketDTO.class);
+        return result;
+    }
 }

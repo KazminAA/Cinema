@@ -18,6 +18,7 @@
         <c:choose>
             <c:when test="${sessionScope.user != null}">
                 <td>Здравствуйте <c:out value="${user.userName}"/>!</td>
+                <td><a href="${pageContext.servletContext.contextPath}/personalarea">Личный кабинет</a></td>
             </c:when>
             <c:otherwise>
                 <td><a href="${pageContext.servletContext.contextPath}/pages/common/login.jsp">Вход</a></td>

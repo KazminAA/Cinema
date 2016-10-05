@@ -43,7 +43,7 @@
             </c:otherwise>
         </c:choose>
     </c:forEach>
-    <input name="Добавить" type="submit"/>
+    <input name="Add" type="submit" value="Добавить"/>
 </form>
 </body>
 </html>
