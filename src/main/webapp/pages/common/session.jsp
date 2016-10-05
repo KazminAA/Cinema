@@ -14,19 +14,8 @@
 </head>
 <body>
 <c:set var="url" scope="session" value="${pageContext.servletContext.contextPath}/"/>
-<table cellpadding="10">
-    <tr>
-<c:choose>
-    <c:when test="${sessionScope.user != null}">
-        <td>Здравствуйте <c:out value="${user.userName}"/>!</td>
-    </c:when>
-    <c:otherwise>
-        <td><a href="${pageContext.servletContext.contextPath}/pages/common/login.jsp">Вход</a></td>
-        <td><a href="${pageContext.servletContext.contextPath}/pages/common/register.jsp">Регистрация</a></td>
-    </c:otherwise>
-</c:choose>
-    </tr>
-</table>
+<c:import url="head.jsp"/>
+<hr>
 <table cellpadding="30">
     <tr>
         <c:forEach items="${sessionScope.hallDTOs}" var="hallDTO">

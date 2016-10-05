@@ -31,7 +31,6 @@ public class SessionServlet extends HttpServlet {
             sessionDTOs.sort((o2, o1) -> o2.getDateOfSeance().compareTo(o1.getDateOfSeance()));
             request.getSession().setAttribute("hallDTOs", hallDTOs);
             request.getSession().setAttribute("dates", dates);
-            System.out.println(Arrays.toString(dates));
             request.getSession().setAttribute("sessionsDTO", sessionDTOs);
         } else {
             sessionDTOs = (List<SessionDTO>) request.getSession().getAttribute("sessionsDTO");

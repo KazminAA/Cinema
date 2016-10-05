@@ -18,15 +18,25 @@
 <h1>Введите поля для ${entity}</h1>
 <h3 style="color: red"><c:out value="${sessionScope.message}"/></h3>
 <form name="Addentity" method="post" accept-charset="UTF-8"
-      action="${pageContext.servletContext.contextPath}/register">
-    Логин: <input type="text" name="login"/><br>
-    Пароль: <input type="text" name="pwd"/><br>
-    Почтовый адресс: <input type="text" name="email"/><br>
-    Имя: <input type="text" name="userName"/><br>
-    Фамилия: <input type="text" name="userSurname"/><br>
+        <c:choose>
+            <c:when test="${sessionScope.user == null}">
+                action="${pageContext.servletContext.contextPath}/register">
+            </c:when>
+            <c:otherwise>
+                action="${pageContext.servletContext.contextPath}/updateuser">
+            </c:otherwise>
+        </c:choose>
+        Логин: <input type="text" name="login" value="${sessionScope.user.login}"/><br>
+    <c:if test="${sessionScope.user != null}">
+        Старый пароль: <input type="password" name="oldpwd"/><br>
+    </c:if>
+    Пароль: <input type="text" name="pwd" value="${sessionScope.user.pwd}"/><br>
+    Почтовый адресс: <input type="text" name="email" value="${sessionScope.user.email}"/><br>
+    Имя: <input type="text" name="userName" value="${sessionScope.user.userName}"/><br>
+    Фамилия: <input type="text" name="userSurname" value="${sessionScope.user.userSurname}"/><br>
     <input type="radio" name="sex" value="false" checked>M</input>
-    <input type="radio" name="sex" value="true" checked>Ж</input><br>
-    День рождения:<input type="date" name="birthday"/>
+<input type="radio" name="sex" value="true">Ж</input><br>
+    День рождения:<input type="date" name="birthday" value="${sessionScope.user.birthday}"/>
     <input name="Добавить" type="submit"/>
 </form>
 </body>
