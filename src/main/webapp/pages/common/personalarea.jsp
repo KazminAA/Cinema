@@ -15,7 +15,7 @@
 </head>
 <body>
 <c:set var="url" scope="session" value="${pageContext.servletContext.contextPath}/personalarea"/>
-<a href="register.jsp">Изменить данные</a><br>
+<a href="${pageContext.servletContext.contextPath}/pages/common/register.jsp">Изменить данные</a><br>
 <table cellpadding="5" style="border: 0ch">
     <tr>
         <th></th>
@@ -23,6 +23,8 @@
         <th>Дата начала</th>
         <th>Время начала</th>
         <th>Зал</th>
+        <th>Ряд</th>
+        <th>Место</th>
         <th>Длительность</th>
         <th>Сумма</th>
         <th></th>
@@ -37,6 +39,8 @@
             <td>${dtf:getDateFromLDT(ticket.session.dateOfSeance)}</td>
             <td>${dtf:getTime(ticket.session.dateOfSeance)}</td>
             <td>${ticket.session.hall.name}</td>
+            <td>${ticket.raw}</td>
+            <td>${ticket.col}</td>
             <td>${dtf:durationToH(ticket.session.film.durationMin)}</td>
             <td>${ticket.session.price}</td>
             <td><c:if test="${!ticket.purchase}">

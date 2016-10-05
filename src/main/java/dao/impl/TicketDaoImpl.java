@@ -1,9 +1,11 @@
 package dao.impl;
 
 
+import datasource.DataSource;
 import models.Ticket;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class TicketDaoImpl extends CrudDao<Ticket> {
             "userID) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private final String UPDATE_TICKET = "UPDATE ticket SET raw=?, col=?, chk=?, purchase=?, timecreate=?, " +
             "sessionID=?, userID=? WHERE id=?";
+    private final String DELETE_RESERV = "DELETE FROM ticket WHERE timecreate < ? AND purchase=0";
 
     private TicketDaoImpl(Class<Ticket> type) {
         super(type);
@@ -70,6 +73,16 @@ public class TicketDaoImpl extends CrudDao<Ticket> {
         preparedStatement.setTimestamp(5, Timestamp.valueOf(entity.getTimecreate()));
         preparedStatement.setInt(6, entity.getSessionID());
         preparedStatement.setInt(7, entity.getUserID());
+    }
+
+    public void deleteReservedTicket(LocalDateTime time) {
+        Connection connection = DataSource.getInstance().getConnection();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE_RESERV)) {
+            preparedStatement.setTimestamp(1, Timestamp.valueOf(time));
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
