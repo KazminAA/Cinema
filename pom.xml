@@ -80,6 +80,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>WebAppTraining</finalName>
+        <finalName>Cinema</finalName>
     </build>
 </project>
