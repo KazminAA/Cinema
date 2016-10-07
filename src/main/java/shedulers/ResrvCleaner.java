@@ -1,10 +1,9 @@
 package shedulers;
 
 import dao.impl.TicketDaoImpl;
+import helpers.PropertyHolder;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Properties;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -16,14 +15,8 @@ public class ResrvCleaner extends TimerTask {
     private int inter;
 
     {
-        try {
-            Properties properties = new Properties();
-            properties.load(ResrvCleaner.class.getClassLoader().getResourceAsStream("application.properties"));
-            inter = Integer.valueOf(properties.getProperty("clearingInterval"));
+        inter = PropertyHolder.getInstance().getClearingInterval();
             ticketDao = TicketDaoImpl.getInstance();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 

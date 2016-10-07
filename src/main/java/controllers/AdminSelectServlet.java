@@ -24,25 +24,27 @@ public class AdminSelectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String disp = null;
         if (request.getParameter("select") != null) {
-            String[] fieldsName = null;
+            String[] fieldsName;
             String item = null;
             Field[] fields = new Field[0];
             switch (request.getParameter("select")) {
                 case "filmprepare": {
                     item = "film";
                     fields = FilmDTO.class.getDeclaredFields();
+                    disp = "pages/admin/addentity.jsp";
                     break;
                 }
                 case "sessionprepare": {
                     item = "session";
                     fields = SessionDTO.class.getDeclaredFields();
-                    if (request.getSession().getAttribute("films") == null) {
+                    if (request.getSession().getAttribute("films") == null || request.getSession().getAttribute("halls") == null) {
                         List<FilmDTO> filmDTOs = FilmServiceImpl.getInstance().getAll();
                         filmDTOs.sort((o1, o2) -> o2.getName().compareTo(o1.getName()));
                         List<HallDTO> hallDTOs = HallServiceImpl.getInstance().getAll();
                         request.getSession().setAttribute("films", filmDTOs);
                         request.getSession().setAttribute("halls", hallDTOs);
                     }
+                    disp = "pages/admin/addsession.jsp";
                     break;
                 }
             }
@@ -52,7 +54,6 @@ public class AdminSelectServlet extends HttpServlet {
             }
             request.setAttribute("fields", fieldsName);
             request.setAttribute("entity", item);
-            disp = "pages/admin/addentity.jsp";
         } else {
             disp = "pages/admin/select.jsp";
         }

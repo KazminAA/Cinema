@@ -14,6 +14,8 @@ public class PropertyHolder {
     private String jdbcUser;
     private String jdbcPassword;
     private String jdbcDriver;
+    private int clearingInterval;
+    private int sessBreakeMin;
 
     private PropertyHolder() {
         loadProperties();
@@ -35,6 +37,8 @@ public class PropertyHolder {
             jdbcUser = properties.getProperty("dbUserLogin");
             jdbcPassword = properties.getProperty("dbUserPassword");
             jdbcUrl = properties.getProperty("jdbcUrl");
+            clearingInterval = Integer.valueOf(properties.getProperty("clearingInterval"));
+            sessBreakeMin = Integer.valueOf(properties.getProperty("sessBreakMin"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -58,5 +62,13 @@ public class PropertyHolder {
 
     public String getJdbcDriver() {
         return jdbcDriver;
+    }
+
+    public int getClearingInterval() {
+        return clearingInterval;
+    }
+
+    public int getSessBreakeMin() {
+        return sessBreakeMin;
     }
 }
