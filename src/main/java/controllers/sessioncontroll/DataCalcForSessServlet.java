@@ -56,7 +56,7 @@ public class DataCalcForSessServlet extends HttpServlet {
         for (FilmDTO film : filmDTOs) {
             if (film.getId() == Integer.parseInt(request.getParameter("filmID"))) {
                 filmDTO = film;
-                request.setAttribute("film", filmDTO);
+                request.getSession().setAttribute("film", filmDTO);
                 break;
             }
         }
@@ -66,8 +66,7 @@ public class DataCalcForSessServlet extends HttpServlet {
         for (HallDTO hall : hallDTOs) {
             if (hall.getId() == Integer.parseInt(request.getParameter("hallID"))) {
                 hallDTO = hall;
-                request.getSession().setAttribute("halls", null);
-                request.setAttribute("hall", hallDTO);
+                request.getSession().setAttribute("hall", hallDTO);
                 break;
             }
         }

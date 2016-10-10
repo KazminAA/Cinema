@@ -15,4 +15,7 @@
 <br>
 <a href="${pageContext.servletContext.contextPath}/admin?select=sessionprepare">Добавить сеанс</a>
 </body>
+<br>
+<a href="${pageContext.servletContext.contextPath}/admin/sessiontodel">Просмотр сессий</a>
+</body>
 </html>

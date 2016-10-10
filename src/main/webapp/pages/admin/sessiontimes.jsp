@@ -16,11 +16,10 @@
 <body>
 <font color="red"><c:out value="${sessionScope.message}"/></font>
 <h1>Введите даты начала и конца сеансов.</h1>
-<c:set var="film" value="${film}" scope="request"/>
-<c:set var="hall" value="${hall}" scope="request"/>
-<h3 style="color: orangered">Длительность фильма: <c:out value="${dtf:durationToH(film.durationMin)}"/></h3>
-Название фильма: ${film.name}<br>
-Зал: ${hall.name}<br>
+<h3 style="color: orangered">Длительность фильма: <c:out
+        value="${dtf:durationToH(sessionScope.film.durationMin)}"/></h3>
+Название фильма: ${sessionScope.film.name}<br>
+Зал: ${sessionScope.hall.name}<br>
 <form name="Addentity" method="post" accept-charset="UTF-8"
       action="${pageContext.servletContext.contextPath}/admin/addsession">
     <input name="priceChk" type="number" value="${price}"/><br>

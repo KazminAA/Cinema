@@ -16,7 +16,7 @@ public class ResrvCleaner extends TimerTask {
 
     {
         inter = PropertyHolder.getInstance().getClearingInterval();
-            ticketDao = TicketDaoImpl.getInstance();
+        ticketDao = TicketDaoImpl.getInstance();
     }
 
 
