@@ -54,7 +54,7 @@ public class PrepareSessionServlet extends HttpServlet {
         }
         System.out.println(sessionDTOs.size());
         sessionDTOs.forEach(System.out::println);
-        request.setAttribute("sessions", sessionDTOs);
+        request.setAttribute("sessionsToDel", sessionDTOs);
         request.getRequestDispatcher("../pages/admin/sessiontodel.jsp").forward(request, response);
     }
 

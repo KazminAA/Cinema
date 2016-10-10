@@ -42,7 +42,7 @@
             <th>Цена</th>
             <th>Наименование фильма</th>
         </tr>
-        <c:forEach items="${sessions}" var="session">
+        <c:forEach items="${sessionsToDel}" var="session">
             <tr>
                 <td><input type="checkbox" name="selected" value="${session.id}"/></td>
                 <td><img width="30" height="40"
