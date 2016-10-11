@@ -23,7 +23,7 @@ public class ExitServlet extends HttpServlet {
         while (names.hasMoreElements()) {
             request.setAttribute(names.nextElement(), null);
         }
-        response.sendRedirect(request.getContextPath());
+        response.sendRedirect(request.getContextPath() + "/");
     }
 
     @Override

@@ -35,7 +35,7 @@ public class PrepareSessionServlet extends HttpServlet {
         }
         request.setAttribute("beginDate", beginDate);
         request.setAttribute("endDate", endDate);
-        sessionDTOs = SessionServiceImpl.getInstance().getSessionBetweenFull(beginDate.atTime(0, 0), endDate.atTime(0, 0));
+        sessionDTOs = SessionServiceImpl.getInstance().getSessionBetweenFull(beginDate.atTime(0, 0), endDate.atTime(23, 59));
         sessionDTOs.sort((o2, o1) -> o2.getDateOfSeance().compareTo(o1.getDateOfSeance()));
         if (sortBy != null) {
             switch (sortBy) {

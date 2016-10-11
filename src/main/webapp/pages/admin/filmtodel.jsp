@@ -13,7 +13,7 @@
     <title>Фильмы по рейтингу</title>
 </head>
 <body>
-<form name="FilmsDelete" action="${pageContext.servletContext.contextPath}/admin/deletefilm">
+<form name="FilmsDelete" action="${pageContext.servletContext.contextPath}/admin/deletefilm" method="post">
     <table cellspacing="10" border="1">
         <tr>
             <th></th>

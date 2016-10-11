@@ -47,4 +47,25 @@
             boolean stringEq(java.lang.String,java.lang.String)
         </function-signature>
     </function>
+    <function>
+        <name>getDateObj</name>
+        <function-class>helpers.DateTimeHelpers</function-class>
+        <function-signature>
+            java.time.LocalDate getDate(java.time.LocalDateTime)
+        </function-signature>
+    </function>
+    <function>
+        <name>getSeanceEnd</name>
+        <function-class>helpers.DateTimeHelpers</function-class>
+        <function-signature>
+            java.time.LocalTime getSeanceEnd(java.time.LocalDateTime,int)
+        </function-signature>
+    </function>
+    <function>
+        <name>getTimeObj</name>
+        <function-class>helpers.DateTimeHelpers</function-class>
+        <function-signature>
+            java.time.LocalTime getTimeObj(java.time.LocalDateTime)
+        </function-signature>
+    </function>
 </taglib>

@@ -14,7 +14,7 @@
     <meta http-equiv="content-type" content="text/html" charset="utf-8">
 </head>
 <body>
-<form name="Date" action="${pageContext.servletContext.contextPath}/admin/sessiontodel">
+<form name="Date" action="${pageContext.servletContext.contextPath}/admin/sessiontodel" method="post">
     <table cellpadding="20">
         <tr>
             <td>Начальная дата отбора: <input type="date" name="beginDate" value="${beginDate}"/></td>
@@ -25,19 +25,21 @@
             <td>
                 <a href="${pageContext.servletContext.contextPath}/admin/sessiontodel?sort=price&beginDate=${beginDate}&endDate=${endDate}">По
                     прайсу</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/pages/admin/select.jsp">К выбору действия</a></td>
         </tr>
     </table>
     <br>
     <input type="submit" name="Go" value="Отобрать"/>
 </form>
-<form name="SessionTo" action="${pageContext.servletContext.contextPath}/admin/dochoese">
+<form name="SessionTo" action="${pageContext.servletContext.contextPath}/admin/dochoese" method="post">
     <table cellpadding="5" border="1">
         <tr>
             <th></th>
             <th>Изображение</th>
             <th>Зал</th>
             <th>Дата сеанса</th>
-            <th>Время сеанса</th>
+            <th>Время начала сеанса</th>
+            <th>Время окончания сеанса</th>
             <th>Длительность сеанса</th>
             <th>Цена</th>
             <th>Наименование фильма</th>
@@ -50,8 +52,9 @@
                 </td>
                 <td>${session.hall.name}</td>
                 <td style="color: darkorchid">${dtf:getDateFromLDT(session.dateOfSeance)}</td>
-                <td style="color: red">${dtf:getTime(session.dateOfSeance)}</td>
-                <td style="color: red">${dtf:durationToH(session.film.durationMin)}</td>
+                <td style="color: red">${dtf:getTimeObj(session.dateOfSeance)}</td>
+                <td style="color: red">${dtf:getSeanceEnd(session.dateOfSeance, session.film.durationMin)}</td>
+                <td style="color: green">${dtf:durationToH(session.film.durationMin)}</td>
                 <td>${session.price}</td>
                 <td>${session.film.name}</td>
             </tr>

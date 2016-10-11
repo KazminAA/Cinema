@@ -34,7 +34,7 @@
                     <td><img width="40" height="50"
                              src="${pageContext.servletContext.contextPath}/image?file=${session.film.smallPoster}">
                     </td>
-                    <td style="color: orange"><c:out value="${dtf:getTime(session.dateOfSeance)}"/></td>
+                    <td style="color: orange"><c:out value="${dtf:getTimeObj(session.dateOfSeance)}"/></td>
                     <td>
                         <a href="${pageContext.servletContext.contextPath}/movie?id=${session.film.id}">${session.film.name}</a>
                     </td>
