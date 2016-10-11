@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -21,25 +20,22 @@ public class PrepareSessionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
         String sortBy = request.getParameter("sort");
         List<SessionDTO> sessionDTOs, sessions;
-        String beginDate = request.getParameter("beginDate");
-        String endDate = request.getParameter("endDate");
-        if (beginDate == null) {
-            beginDate = "";
-        }
-        if (endDate == null) {
-            endDate = "";
-        }
-        if (beginDate.equals("") && endDate.equals("")) {
-            sessionDTOs = SessionServiceImpl.getInstance().getAll();
-            /*sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date1, date1.plusDays(3));
-            sessionDTOs.sort((o2, o1) -> o2.getDateOfSeance().compareTo(o1.getDateOfSeance()));*/
-        } else if (beginDate.equals("")) {
-            sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(LocalDateTime.MIN,
-                    LocalDate.parse(endDate).atTime(0, 0));
+        LocalDate beginDate, endDate;
+        String beginDateStr = request.getParameter("beginDate");
+        String endDateStr = request.getParameter("endDate");
+        if (beginDateStr == null || beginDateStr.equals("")) {
+            beginDate = LocalDate.now();
         } else {
-            sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(LocalDate.parse(beginDate).atTime(0, 0),
-                    LocalDateTime.MAX);
+            beginDate = LocalDate.parse(beginDateStr);
         }
+        if (endDateStr == null || endDateStr.equals("")) {
+            endDate = beginDate.plusDays(5);
+        } else {
+            endDate = LocalDate.parse(endDateStr);
+        }
+        request.setAttribute("beginDate", beginDate);
+        request.setAttribute("endDate", endDate);
+        sessionDTOs = SessionServiceImpl.getInstance().getSessionBetweenFull(beginDate.atTime(0, 0), endDate.atTime(0, 0));
         sessionDTOs.sort((o2, o1) -> o2.getDateOfSeance().compareTo(o1.getDateOfSeance()));
         if (sortBy != null) {
             switch (sortBy) {
@@ -52,8 +48,6 @@ public class PrepareSessionServlet extends HttpServlet {
                 }
             }
         }
-        System.out.println(sessionDTOs.size());
-        sessionDTOs.forEach(System.out::println);
         request.setAttribute("sessionsToDel", sessionDTOs);
         request.getRequestDispatcher("../pages/admin/sessiontodel.jsp").forward(request, response);
     }

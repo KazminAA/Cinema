@@ -14,8 +14,10 @@
 <a href="${pageContext.servletContext.contextPath}/admin?select=filmprepare">Добавить фильм в базу</a>
 <br>
 <a href="${pageContext.servletContext.contextPath}/admin?select=sessionprepare">Добавить сеанс</a>
-</body>
 <br>
-<a href="${pageContext.servletContext.contextPath}/admin/sessiontodel">Просмотр сессий</a>
+<a href="${pageContext.servletContext.contextPath}/admin/sessiontodel">Просмотр и удаление сессий</a>
+<br>
+<a href="${pageContext.servletContext.contextPath}/movie?status=1">Просмотр и удаление фильмов</a>
 </body>
+
 </html>

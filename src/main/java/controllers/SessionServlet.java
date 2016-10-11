@@ -24,10 +24,10 @@ public class SessionServlet extends HttpServlet {
         String selectBy = request.getParameter("select");
         List<SessionDTO> sessionDTOs, sessions;
         if (request.getSession().getAttribute("sessionsDTO") == null) {
-            LocalDateTime date1 = LocalDateTime.of(2016, 9, 23, 0, 0);
+            LocalDateTime date1 = LocalDateTime.now();
             List<HallDTO> hallDTOs = HallServiceImpl.getInstance().getAll();
             LocalDate[] dates = {date1.toLocalDate(), date1.plusDays(1).toLocalDate(), date1.plusDays(2).toLocalDate()};
-            sessionDTOs = SessionServiceImpl.getInstance().getSessionBetween(date1, date1.plusDays(3));
+            sessionDTOs = SessionServiceImpl.getInstance().getSessionBetweenFull(date1, date1.plusDays(3));
             sessionDTOs.sort((o2, o1) -> o2.getDateOfSeance().compareTo(o1.getDateOfSeance()));
             request.getSession().setAttribute("hallDTOs", hallDTOs);
             request.getSession().setAttribute("dates", dates);

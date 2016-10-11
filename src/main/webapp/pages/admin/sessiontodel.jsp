@@ -17,20 +17,20 @@
 <form name="Date" action="${pageContext.servletContext.contextPath}/admin/sessiontodel">
     <table cellpadding="20">
         <tr>
-            <td>Начальная дата отбора: <input type="date" name="bedinDate"/></td>
-            <td>Конечная дата отбора: <input type="date" name="endDate"/></td>
+            <td>Начальная дата отбора: <input type="date" name="beginDate" value="${beginDate}"/></td>
+            <td>Конечная дата отбора: <input type="date" name="endDate" value="${endDate}"/></td>
             <td>
-                <a href="${pageContext.servletContext.contextPath}/admin/sessiontodel?sortBy=hall&beginDate=${beginDate}&endDate=${endDate}">По
+                <a href="${pageContext.servletContext.contextPath}/admin/sessiontodel?sort=hall&beginDate=${beginDate}&endDate=${endDate}">По
                     залу</a></td>
             <td>
-                <a href="${pageContext.servletContext.contextPath}/admin/sessiontodel?sortBy=price&beginDate=${beginDate}&endDate=${endDate}">По
+                <a href="${pageContext.servletContext.contextPath}/admin/sessiontodel?sort=price&beginDate=${beginDate}&endDate=${endDate}">По
                     прайсу</a></td>
         </tr>
     </table>
     <br>
     <input type="submit" name="Go" value="Отобрать"/>
 </form>
-<form name="SessionTo" action="${pageContext.servletContext.contextPath}/admin/delsession">
+<form name="SessionTo" action="${pageContext.servletContext.contextPath}/admin/dochoese">
     <table cellpadding="5" border="1">
         <tr>
             <th></th>
@@ -57,7 +57,8 @@
             </tr>
         </c:forEach>
     </table>
-    <input type="submit" name="Delete" value="Удалить"/>
+    <input type="submit" value="Delete" name="act"/>
+    <input type="submit" value="Edit" name="act"/>
 </form>
 </body>
 </html>

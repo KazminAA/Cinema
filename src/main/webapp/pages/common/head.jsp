@@ -18,7 +18,11 @@
         <c:choose>
             <c:when test="${sessionScope.user != null}">
                 <td>Здравствуйте <c:out value="${user.userName}"/>!</td>
+                <td><a href="${pageContext.servletContext.contextPath}/exit">Выход</a></td>
                 <td><a href="${pageContext.servletContext.contextPath}/personalarea">Личный кабинет</a></td>
+                <c:if test="${sessionScope.user.role.name eq 'Admin'}">
+                    <td><a href="${pageContext.servletContext.contextPath}/pages/admin/select.jsp">Админка</a></td>
+                </c:if>
             </c:when>
             <c:otherwise>
                 <td><a href="${pageContext.servletContext.contextPath}/pages/common/login.jsp">Вход</a></td>

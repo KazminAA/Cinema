@@ -13,6 +13,7 @@
     <title>Расписание сеансов на ближайшее время.</title>
 </head>
 <body>
+<c:set var="url" scope="session" value="${pageContext.servletContext.contextPath}/"/>
 <c:import url="head.jsp"/>
 <hr>
 <table cellpadding="30">

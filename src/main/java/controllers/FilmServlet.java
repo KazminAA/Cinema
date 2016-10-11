@@ -1,6 +1,7 @@
 package controllers;
 
 import dto.FilmDTO;
+import dto.UserDTO;
 import service.impl.FilmServiceImpl;
 
 import javax.servlet.ServletException;
@@ -26,6 +27,11 @@ public class FilmServlet extends HttpServlet {
             List<FilmDTO> films = FilmServiceImpl.getInstance().getAll();
             films.sort((o1, o2) -> (Float.compare(o2.getRaiting(), o1.getRaiting())));
             request.setAttribute("films", films);
+            UserDTO userDTO = (UserDTO) request.getSession().getAttribute("user");
+            if (userDTO != null && userDTO.getRole().getName().equals("Admin")) {
+                request.getRequestDispatcher("/pages/admin/filmtodel.jsp").forward(request, response);
+                return;
+            }
             request.getRequestDispatcher("/pages/common/filmsrait.jsp").forward(request, response);
         }
     }
