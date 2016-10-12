@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * Created by Alexandr on 05.10.2016.
  */
-@WebFilter(filterName = "UpdateUserFilter", urlPatterns = "/personalarea", servletNames = {"UpdateUserServlet", "ExitServlet"})
+@WebFilter(filterName = "UpdateUserFilter", urlPatterns = "/personalarea", servletNames = {"UpdateUserServlet", "ExitServlet", "ReservTicketsServlet"})
 public class UpdateUserFilter implements Filter {
     @Override
     public void destroy() {

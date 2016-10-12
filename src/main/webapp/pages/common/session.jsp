@@ -15,6 +15,7 @@
 <body>
 <c:set var="url" scope="session" value="${pageContext.servletContext.contextPath}/"/>
 <c:import url="head.jsp"/>
+<p style="font-size: large; color: darkred">${sessionScope.message}</p>
 <hr>
 <table cellpadding="30">
     <tr>
@@ -43,7 +44,9 @@
                     <td><img width="40" height="50"
                              src="${pageContext.servletContext.contextPath}/image?file=${session.film.smallPoster}">
                     </td>
-                    <td style="color: orange"><c:out value="${dtf:getTimeObj(session.dateOfSeance)}"/></td>
+                    <td><a style="color: orange"
+                           href="${pageContext.servletContext.contextPath}/selecttickets?selecteds=${session.id}">
+                        <c:out value="${dtf:getTimeObj(session.dateOfSeance)}"/></a></td>
                     <td>
                         <a href="${pageContext.servletContext.contextPath}/movie?id=${session.film.id}">${session.film.name}</a>
                     </td>

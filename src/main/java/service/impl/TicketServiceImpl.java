@@ -75,4 +75,10 @@ public class TicketServiceImpl implements Service<TicketDTO> {
         List<TicketDTO> result = beanMapper.listMapToList(tickets, TicketDTO.class);
         return result;
     }
+
+    public List<TicketDTO> getSessionTickets(int sessionID) {
+        List<Ticket> tickets = ticketDao.getBy("sessionID", Integer.toString(sessionID));
+        List<TicketDTO> result = beanMapper.listMapToList(tickets, TicketDTO.class);
+        return result;
+    }
 }
