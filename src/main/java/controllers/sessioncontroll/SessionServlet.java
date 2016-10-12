@@ -1,4 +1,4 @@
-package controllers;
+package controllers.sessioncontroll;
 
 import dto.HallDTO;
 import dto.SessionDTO;
@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.*;
+import java.time.LocalTime;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Alexandr on 23.09.2016.
@@ -23,11 +24,37 @@ public class SessionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
         String selectBy = request.getParameter("select");
         List<SessionDTO> sessionDTOs, sessions;
+        LocalDate beginDate, endDate, valDate;
+        LocalTime time;
+        if ((request.getParameter("clearDTO") != null) && (request.getParameter("clearDTO").equals("true"))) {
+            request.getSession().setAttribute("sessionsDTO", null);
+        }
         if (request.getSession().getAttribute("sessionsDTO") == null) {
-            LocalDateTime date1 = LocalDateTime.now();
+            String beginDateStr = request.getParameter("beginDate");
+            String endDateStr = request.getParameter("endDate");
+            if (beginDateStr == null || beginDateStr.equals("")) {
+                beginDate = LocalDate.now();
+                valDate = LocalDate.now();
+                time = LocalTime.now();
+            } else {
+                beginDate = LocalDate.parse(beginDateStr);
+                valDate = LocalDate.parse(beginDateStr);
+                time = LocalTime.of(0, 0);
+            }
+            if (endDateStr == null || endDateStr.equals("")) {
+                endDate = beginDate.plusDays(3);
+            } else {
+                endDate = LocalDate.parse(endDateStr);
+            }
             List<HallDTO> hallDTOs = HallServiceImpl.getInstance().getAll();
-            LocalDate[] dates = {date1.toLocalDate(), date1.plusDays(1).toLocalDate(), date1.plusDays(2).toLocalDate()};
-            sessionDTOs = SessionServiceImpl.getInstance().getSessionBetweenFull(date1, date1.plusDays(3));
+            List<LocalDate> dates = new LinkedList<>();
+
+            while (!valDate.isAfter(endDate)) {
+                dates.add(valDate);
+                valDate = valDate.plusDays(1);
+            }
+            sessionDTOs = SessionServiceImpl.getInstance().getSessionBetweenFull(beginDate.atTime(time),
+                    endDate.atTime(23, 59));
             sessionDTOs.sort((o2, o1) -> o2.getDateOfSeance().compareTo(o1.getDateOfSeance()));
             request.getSession().setAttribute("hallDTOs", hallDTOs);
             request.getSession().setAttribute("dates", dates);

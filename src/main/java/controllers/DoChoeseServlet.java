@@ -1,4 +1,4 @@
-package controllers.sessioncontroll;
+package controllers;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,10 +17,23 @@ public class DoChoeseServlet extends HttpServlet {
         String[] selected = request.getParameterValues("selected");
         request.setAttribute("selected", selected);
         String choese = request.getParameter("act");
-        if (choese.equals("Delete")) {
-            request.getRequestDispatcher("/admin/delsession").forward(request, response);
-        } else if (choese.equals("Edit")) {
-            request.getRequestDispatcher("/admin/editsession").forward(request, response);
+        switch (choese) {
+            case "Delete Session": {
+                request.getRequestDispatcher("/admin/delsession").forward(request, response);
+                break;
+            }
+            case "Edit Session": {
+                request.getRequestDispatcher("/admin/editsession").forward(request, response);
+                break;
+            }
+            case "Delete Film": {
+                request.getRequestDispatcher("/admin/deletefilm").forward(request, response);
+                break;
+            }
+            case "Edit Film": {
+                request.getRequestDispatcher("/admin/editfilm").forward(request, response);
+                break;
+            }
         }
     }
 

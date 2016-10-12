@@ -1,4 +1,4 @@
-package controllers;
+package controllers.usercontroll;
 
 import dao.impl.RoleDaoImpl;
 import dto.UserDTO;

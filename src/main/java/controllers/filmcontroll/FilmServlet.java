@@ -1,4 +1,4 @@
-package controllers;
+package controllers.filmcontroll;
 
 import dto.FilmDTO;
 import dto.UserDTO;

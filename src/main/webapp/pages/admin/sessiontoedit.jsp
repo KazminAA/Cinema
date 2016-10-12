@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Список сессий</title>
+    <title>Редактирование сессий</title>
     <meta http-equiv="content-type" content="text/html" charset="utf-8">
 </head>
 <body>

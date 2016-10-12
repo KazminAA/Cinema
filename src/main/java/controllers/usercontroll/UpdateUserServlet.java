@@ -1,4 +1,4 @@
-package controllers;
+package controllers.usercontroll;
 
 import dto.UserDTO;
 import service.impl.UserServiceImpl;

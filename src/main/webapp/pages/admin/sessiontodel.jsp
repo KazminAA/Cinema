@@ -14,6 +14,7 @@
     <meta http-equiv="content-type" content="text/html" charset="utf-8">
 </head>
 <body>
+<a href="${pageContext.servletContext.contextPath}/pages/admin/select.jsp">К выбору действия</a>
 <form name="Date" action="${pageContext.servletContext.contextPath}/admin/sessiontodel" method="post">
     <table cellpadding="20">
         <tr>
@@ -60,8 +61,8 @@
             </tr>
         </c:forEach>
     </table>
-    <input type="submit" value="Delete" name="act"/>
-    <input type="submit" value="Edit" name="act"/>
+    <input type="submit" value="Delete Session" name="act"/>
+    <input type="submit" value="Edit Session" name="act"/>
 </form>
 </body>
 </html>

@@ -25,6 +25,15 @@
         <td><a href="${pageContext.servletContext.contextPath}/">Все залы</a></td>
     </tr>
 </table>
+<table cellpadding="5">
+    <form name="date" action="${pageContext.servletContext.contextPath}/?clearDTO=true" method="post">
+        <tr>
+            <td>Начальная дата:<input type="date" name="beginDate"/></td>
+            <td>Конечная дата:<input type="date" name="endDate"/></td>
+            <td><input type="submit" value="Выбрать"/></td>
+        </tr>
+    </form>
+</table>
 <c:forEach items="${sessionScope.dates}" var="date">
     <h1><c:out value="${dtf:getDate(date)}"/></h1>
     <table frame="hsides" width="600">

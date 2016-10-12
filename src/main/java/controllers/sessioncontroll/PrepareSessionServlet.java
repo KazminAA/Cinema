@@ -19,7 +19,7 @@ public class PrepareSessionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
         String sortBy = request.getParameter("sort");
-        List<SessionDTO> sessionDTOs, sessions;
+        List<SessionDTO> sessionDTOs;
         LocalDate beginDate, endDate;
         String beginDateStr = request.getParameter("beginDate");
         String endDateStr = request.getParameter("endDate");

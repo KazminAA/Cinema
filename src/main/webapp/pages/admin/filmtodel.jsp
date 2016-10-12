@@ -13,7 +13,8 @@
     <title>Фильмы по рейтингу</title>
 </head>
 <body>
-<form name="FilmsDelete" action="${pageContext.servletContext.contextPath}/admin/deletefilm" method="post">
+<a href="${pageContext.servletContext.contextPath}/pages/admin/select.jsp">К выбору действия</a>
+<form name="FilmsDelete" action="${pageContext.servletContext.contextPath}/admin/dochoese" method="post">
     <table cellspacing="10" border="1">
         <tr>
             <th></th>
@@ -38,7 +39,8 @@
             </tr>
         </c:forEach>
     </table>
-    <input type="submit" name="Delete" value="Удалить"/>
+    <input type="submit" name="act" value="Delete Film"/>
+    <input type="submit" name="act" value="Edit Film"/>
 </form>
 <hr>
 </body>
