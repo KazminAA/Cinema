@@ -96,6 +96,10 @@ public class TicketDTO extends Entity {
         return session;
     }
 
+    public void setSession(SessionDTO session) {
+        this.session = session;
+    }
+
     @Override
     public String toString() {
         return "Ticket{" +

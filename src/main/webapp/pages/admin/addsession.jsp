@@ -14,6 +14,7 @@
     <title>Добавить ${entity}</title>
 </head>
 <body>
+<c:import url="/pages/common/head.jsp"/>
 <font color="red"><c:out value="${sessionScope.message}"/></font>
 <c:set var="message" value="" scope="session"/>
 <c:set var="url" scope="session" value="${pageContext.servletContext.contextPath}/"/>

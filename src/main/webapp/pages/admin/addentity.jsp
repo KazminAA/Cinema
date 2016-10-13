@@ -14,6 +14,7 @@
     <title>Добавить ${entity}</title>
 </head>
 <body>
+<c:import url="/pages/common/head.jsp"/>
 <h1>Введите поля для ${entity}</h1>
 <c:out value="${sessionScope.message}"/>
 <c:set value="${fields}" var="fields" scope="request"/>

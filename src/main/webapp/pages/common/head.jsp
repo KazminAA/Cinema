@@ -13,8 +13,10 @@
     <meta http-equiv="content-type" content="text/html" charset="UTF-8">
 </head>
 <body>
+<c:import url="/pages/common/head.jsp"/>
 <table cellpadding="10">
     <tr>
+        <td><a href="${pageContext.servletContext.contextPath}/">На главную</a></td>
         <c:choose>
             <c:when test="${sessionScope.user != null}">
                 <td>Здравствуйте <c:out value="${user.userName}"/>!</td>

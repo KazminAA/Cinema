@@ -13,7 +13,7 @@
     <title>Login</title>
 </head>
 <body>
-<c:out value="${sessionScope.message}"/>
+<c:out value="${message}"/>
 <form name="Login" method="post" accept-charset="UTF-8" action="${pageContext.servletContext.contextPath}/login">
     <input type="text" name="login"/><br>
     <input type="password" name="password"/>

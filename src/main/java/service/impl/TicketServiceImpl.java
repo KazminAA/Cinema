@@ -3,12 +3,15 @@ package service.impl;
 
 import dao.DaoFactory;
 import dao.api.Dao;
+import dto.SessionDTO;
 import dto.TicketDTO;
 import mappers.BeanMapper;
 import models.Ticket;
 import service.api.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Alexandr on 22.09.2016.
@@ -36,6 +39,20 @@ public class TicketServiceImpl implements Service<TicketDTO> {
         List<Ticket> tickets = ticketDao.getAll();
         List<TicketDTO> ticketDTOs = beanMapper.listMapToList(tickets, TicketDTO.class);
         return ticketDTOs;
+    }
+
+    public List<TicketDTO> getAllFull() {
+        List<Ticket> tickets = ticketDao.getAll();
+        List<TicketDTO> result = beanMapper.listMapToList(tickets, TicketDTO.class);
+        List<SessionDTO> sessionDTOs = SessionServiceImpl.getInstance().getAllFull();
+        Map<Integer, SessionDTO> sessionDTOMap = new HashMap<>();
+        for (SessionDTO sessionDTO : sessionDTOs) {
+            sessionDTOMap.put(sessionDTO.getId(), sessionDTO);
+        }
+        for (TicketDTO ticketDTO : result) {
+            ticketDTO.setSession(sessionDTOMap.get(ticketDTO.getSessionID()));
+        }
+        return result;
     }
 
     @Override

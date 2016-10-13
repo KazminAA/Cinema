@@ -1,5 +1,7 @@
-package controllers;
+package controllers.ticketcontroll;
 
+import dto.TicketDTO;
+import service.api.Service;
 import service.impl.TicketServiceImpl;
 
 import javax.servlet.ServletException;
@@ -10,15 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Alexandr on 05.10.2016.
+ * Created by Alexandr on 11.10.2016.
  */
-@WebServlet(name = "PurchaseServlet", urlPatterns = "/purchase")
-public class PurchaseServlet extends HttpServlet {
+@WebServlet(name = "DeleteTicketServlet", urlPatterns = "/admin/deleteticket")
+public class DeleteTicketServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        TicketServiceImpl.getInstance().updateFieldIn("purchase", "1", Integer.parseInt(request.getParameter("ticketid")));
-        System.out.println(request.getSession().getAttribute("url").toString());
-        response.sendRedirect(request.getSession().getAttribute("url").toString());
+        String[] toDelStr = request.getParameterValues("selected");
+        Service<TicketDTO> ticketService = TicketServiceImpl.getInstance();
+        for (int i = 0; i < toDelStr.length; i++) {
+            ticketService.delete(Integer.parseInt(toDelStr[i]));
+        }
+        response.sendRedirect(request.getContextPath() + "/admin/tickettodel");
     }
 
     @Override

@@ -66,11 +66,7 @@ public class SelectTicketsServlet extends HttpServlet {
                         seats[j + noseats] = seat;
                     }
                 }
-               /* for (int j = struct[i]; j < seats.length; j++) {
-                    seats[j] = null;
-                }*/
                 raws[i] = seats;
-                System.out.println(Arrays.toString(seats));
             }
             request.setAttribute("freeSeats", raws);
             request.getRequestDispatcher("pages/common/selectseats.jsp").forward(request, response);

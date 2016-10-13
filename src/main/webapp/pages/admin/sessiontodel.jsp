@@ -14,6 +14,7 @@
     <meta http-equiv="content-type" content="text/html" charset="utf-8">
 </head>
 <body>
+<c:import url="/pages/common/head.jsp"/>
 <a href="${pageContext.servletContext.contextPath}/pages/admin/select.jsp">К выбору действия</a>
 <form name="Date" action="${pageContext.servletContext.contextPath}/admin/sessiontodel" method="post">
     <table cellpadding="20">

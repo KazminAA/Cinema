@@ -45,7 +45,7 @@ public class ReservTicketsServlet extends HttpServlet {
                 }
             }
         }
-        response.sendRedirect("/personalarea");
+        response.sendRedirect(request.getContextPath() + "/personalarea");
     }
 
     @Override

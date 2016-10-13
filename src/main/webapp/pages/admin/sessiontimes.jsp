@@ -14,6 +14,7 @@
     <title>Добавить время сеансов</title>
 </head>
 <body>
+<c:import url="/pages/common/head.jsp"/>
 <font color="red"><c:out value="${sessionScope.message}"/></font>
 <h1>Введите даты начала и конца сеансов.</h1>
 <h3 style="color: orangered">Длительность фильма: <c:out

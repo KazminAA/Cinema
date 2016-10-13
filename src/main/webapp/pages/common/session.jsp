@@ -15,7 +15,7 @@
 <body>
 <c:set var="url" scope="session" value="${pageContext.servletContext.contextPath}/"/>
 <c:import url="head.jsp"/>
-<p style="font-size: large; color: darkred">${sessionScope.message}</p>
+<p style="font-size: large; color: darkred">${message}</p>
 <hr>
 <table cellpadding="30">
     <tr>

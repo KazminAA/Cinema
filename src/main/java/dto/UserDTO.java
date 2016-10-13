@@ -14,7 +14,7 @@ public class UserDTO extends Entity {
     private String email;
     private String userName;
     private String userSurname;
-    private LocalDate Birthday;
+    private LocalDate birthday;
     private UserRoleDTO role;
     private Boolean sex;
 
@@ -49,11 +49,11 @@ public class UserDTO extends Entity {
     }
 
     public LocalDate getBirthday() {
-        return Birthday;
+        return birthday;
     }
 
     public void setBirthday(LocalDate birthday) {
-        Birthday = birthday;
+        this.birthday = birthday;
     }
 
     public String getLogin() {

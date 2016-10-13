@@ -34,6 +34,18 @@ public class DoChoeseServlet extends HttpServlet {
                 request.getRequestDispatcher("/admin/editfilm").forward(request, response);
                 break;
             }
+            case "Delete User": {
+                request.getRequestDispatcher("/admin/deleteuser").forward(request, response);
+                break;
+            }
+            case "Edit User": {
+                request.getRequestDispatcher("/admin/edituser").forward(request, response);
+                break;
+            }
+            case "Delete Ticket": {
+                request.getRequestDispatcher("/admin/deleteticket").forward(request, response);
+                break;
+            }
         }
     }
 

@@ -13,6 +13,7 @@
     <title>Фильмы по рейтингу</title>
 </head>
 <body>
+<c:import url="/pages/common/head.jsp"/>
 <a href="${pageContext.servletContext.contextPath}/pages/admin/select.jsp">К выбору действия</a>
 <form name="FilmsDelete" action="${pageContext.servletContext.contextPath}/admin/dochoese" method="post">
     <table cellspacing="10" border="1">

@@ -22,9 +22,6 @@ public class UserAreaServlet extends HttpServlet {
         List<TicketDTO> tickets = TicketServiceImpl.getInstance().getUserTickets(((UserDTO) request.
                 getSession().getAttribute("user")).getId());
         tickets.sort((o1, o2) -> o1.getSession().getDateOfSeance().compareTo(o2.getSession().getDateOfSeance()));
-        for (TicketDTO ticket : tickets) {
-            System.out.println(ticket.getSession().getDateOfSeance() + " " + ticket.isPurchase());
-        }
         request.setAttribute("tickets", tickets);
         request.getRequestDispatcher("/pages/common/personalarea.jsp").forward(request, response);
     }
